@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body class="loaded">
+    <!-- JQUERY and Normalize.css INSTALLED -->
+
+<div class="overlay loaded" style="display: none;">
+	<div class="overlayDoor"></div>
+	<div class="overlayContent">
+		<div class="loader">
+			<div class="inner"></div>
+		</div>
+        <p>Loading....</p>
+		<!-- <div class="skip"><button class="stop">Stop</button></div> -->
+	</div>
+</div>
+
+
+<div class="header">
+    <button class="start">start</button>
+    <button class="stop">Stop</button>
+	<div class="darken">
+		<h1>
+			The page has fully loaded!<br/><span>Or you skipped...</span></h1>
+	</div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+
+    $('.start').click(function() {
+		$('.overlay, body').removeClass('loaded');
+        setTimeout(function() {
+			$('.overlay').removeAttr('style')
+		}, 1000)
+	})
+
+    $('.stop').click(function() {
+		$('.overlay, body').addClass('loaded');
+		setTimeout(function() {
+			$('.overlay').css({'display':'none'})
+		}, 2000)
+	})
+	
+
+	// // Will wait for everything on the page to load.
+	// $(window).bind('load', function() {
+	// 	$('.overlay, body').addClass('loaded');
+	// 	setTimeout(function() {
+	// 		$('.overlay').css({'display':'none'})
+	// 	}, 2000)
+	// });
+	
+	// // Will remove overlay after 1min for users cannnot load properly.
+	// setTimeout(function() {
+	// 	$('.overlay, body').addClass('loaded');
+	// }, 60000);
+})
+</script>
+
+</body>
+</html>
